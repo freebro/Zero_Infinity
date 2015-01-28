@@ -6,7 +6,8 @@ public class Gravity : MonoBehaviour {
 	GameObject World;
 	Vector3 Distance;
 	float gravity=9.81f;
-
+	Vector3 rota;
+	float disx,disy,disz;
 	void Start () 
 	{
 		World = GameObject.FindGameObjectWithTag ("World");
@@ -16,8 +17,15 @@ public class Gravity : MonoBehaviour {
 	{
 		fGravity ();
 		fForce ();
-
+		fPosition ();
 	}
+
+	void fPosition()
+	{
+		transform.up = -Distance;
+	}
+
+
 
 	void fGravity()
 	{
