@@ -154,11 +154,9 @@
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SmoothSyncMovement.cs" />
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SupportLogger.cs" />
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
-     <Compile Include="Assets\Scripts\FauxGravityAttractor.cs" />
-     <Compile Include="Assets\Scripts\FauxGravityBody.cs" />
      <Compile Include="Assets\Scripts\Gravity.cs" />
-     <Compile Include="Assets\Scripts\Mashers.cs" />
      <Compile Include="Assets\Scripts\MouseLook.cs" />
+     <Compile Include="Assets\Scripts\NetworkManager.cs" />
      <Compile Include="Assets\Scripts\PController.cs" />
      <Compile Include="Assets\Scripts\State.cs" />
      <None Include="Assets\Photon Unity Networking\Demos\MarcoPolo-Tutorial\marcopolo-readme.txt" />

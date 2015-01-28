@@ -4,7 +4,6 @@ using System.Collections;
 public class PController : MonoBehaviour {
 	int speed = 8000;
 	State state= new State();
-	Mashers mashers = new Mashers();
 	public float fTemp=1;
 	// Use this for initialization
 	void Start () 

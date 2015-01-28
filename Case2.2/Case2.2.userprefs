@@ -1,10 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Gravity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/NEtworkManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/PController.cs" Line="45" Column="19" />
-      <File FileName="Assets/Scripts/Gravity.cs" Line="19" Column="5" />
+      <File FileName="Assets/Scripts/PController.cs" Line="6" Column="27" />
+      <File FileName="Assets/Scripts/Gravity.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/State.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/NEtworkManager.cs" Line="35" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
