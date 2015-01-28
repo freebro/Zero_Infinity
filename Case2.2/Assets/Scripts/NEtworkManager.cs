@@ -5,16 +5,13 @@ public class NetworkManager : MonoBehaviour {
 	private const string typeName = "ZeroInfinity";
 	private const string gameName = "Infinity1";
 	private HostData[] hostList;
-
+	public GameObject playerPrefab;
+	
 	private void StartServer()
 	{
 		MasterServer.ipAddress = "127.0.0.1";
 		Network.InitializeServer(4, 25000, !Network.HavePublicAddress());
 		MasterServer.RegisterHost(typeName, gameName);
-	}
-	void OnServerInitialized()
-	{
-		Debug.Log("Server Initializied");
 	}
 	void OnGUI()
 	{
@@ -35,7 +32,7 @@ public class NetworkManager : MonoBehaviour {
 			}
 		}
 	}
-
+	
 	
 	private void RefreshHostList()
 	{
@@ -47,13 +44,24 @@ public class NetworkManager : MonoBehaviour {
 		if (msEvent == MasterServerEvent.HostListReceived)
 			hostList = MasterServer.PollHostList();
 	}
+	
 	private void JoinServer(HostData hostData)
 	{
 		Network.Connect(hostData);
 	}
 	
+	void OnServerInitialized()
+	{
+		SpawnPlayer();
+	}
+	
 	void OnConnectedToServer()
 	{
-		Debug.Log("Server Joined");
+		SpawnPlayer();
+	}
+	
+	private void SpawnPlayer()
+	{
+		Network.Instantiate(playerPrefab, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
 	}
 }
