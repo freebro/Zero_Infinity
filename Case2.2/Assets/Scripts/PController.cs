@@ -5,6 +5,8 @@ public class PController : MonoBehaviour {
 	int speed = 8000;
 	State state= new State();
 	public float fTemp=1;
+	public Transform colloooor;
+	public GameObject quikTimeEvent;
 	// Use this for initialization
 	void Start () 
 	{
@@ -16,18 +18,19 @@ public class PController : MonoBehaviour {
 		switch(state.myState)
 		{
 		case MyState.frozen:
-			if(Input.GetMouseButtonDown (0))
-			{
-				fTemp +=1.5f;
-			}
+			fTemp -= Time.deltaTime;
+			quikTimeEvent.SetActive (true);
+
 
 			if(fTemp >= 10 )
 			{
 				state.myState = MyState.warm;
 			}
-			transform.renderer.material.color = Color.blue;
+			colloooor.renderer.material.color = Color.blue;
 			break;
 		case MyState.warm:
+			quikTimeEvent.SetActive (false);
+			fTemp -= Time.deltaTime*2;
 			move ();
 			if(fTemp<10 )
 			{
@@ -37,9 +40,10 @@ public class PController : MonoBehaviour {
 			{
 				state.myState = MyState.hot;
 			}
-			transform.renderer.material.color = Color.green;
+			colloooor.renderer.material.color = Color.green;
 			break;
 		case MyState.hot:
+			fTemp -= Time.deltaTime*3;
 			move ();
 			if(fTemp < 50 )
 			{
@@ -49,15 +53,16 @@ public class PController : MonoBehaviour {
 			{
 				state.myState = MyState.epiclyHot;
 			}
-			transform.renderer.material.color = Color.magenta;
+			colloooor.renderer.material.color = Color.yellow;
 			break;
 		case MyState.epiclyHot:
+			fTemp -= Time.deltaTime*5;
 			move ();
 			if(fTemp < 100 )
 			{
 				state.myState = MyState.hot;
 			}
-			transform.renderer.material.color = Color.red;
+			colloooor.renderer.material.color = Color.red;
 			break;
 		}
 		temp ();
@@ -65,19 +70,8 @@ public class PController : MonoBehaviour {
 
 	void temp()
 	{
-		Debug.Log ("changing tempratureoverhere");
-		if(state.myState == MyState.frozen)
-		{
-			fTemp -=Time.deltaTime*2;
-		}
-		else
-		{
-			fTemp -=Time.deltaTime;
-		}
-
-
-		if(fTemp <0)
-			fTemp =0;
+		if(fTemp <1)
+			fTemp =1;
 
 	}
 

@@ -13,12 +13,14 @@ public class NetworkManager : MonoBehaviour {
 		Network.InitializeServer(4, 25000, !Network.HavePublicAddress());
 		MasterServer.RegisterHost(typeName, gameName);
 	}
+
 	void OnGUI()
 	{
 		if (!Network.isClient && !Network.isServer)
 		{
 			if (GUI.Button(new Rect(100, 100, 250, 100), "Start Server"))
 				StartServer();
+
 			if (GUI.Button(new Rect(100, 250, 250, 100), "Refresh Hosts"))
 				RefreshHostList();
 			
@@ -32,8 +34,7 @@ public class NetworkManager : MonoBehaviour {
 			}
 		}
 	}
-	
-	
+
 	private void RefreshHostList()
 	{
 		MasterServer.RequestHostList(typeName);
@@ -62,6 +63,6 @@ public class NetworkManager : MonoBehaviour {
 	
 	private void SpawnPlayer()
 	{
-		Network.Instantiate(playerPrefab, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
+		Network.Instantiate(playerPrefab, new Vector3(0f, 40f, 0f), Quaternion.identity, 0);
 	}
 }
